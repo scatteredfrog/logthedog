@@ -26,5 +26,17 @@
                 </a>
             </li>
         </ul>
+        <ul class="navbar-nav d-flex">
+            <li class="nav-item db-container">
+                <span class="forceWhite db-nav-text nav-link">
+                    Welcome,
+                    @auth
+                        {{ Auth::user()->name }}!
+                    @else
+                        friend!
+                    @endauth
+                </span>
+            </li>
+        </ul>
     </div>
 </nav>

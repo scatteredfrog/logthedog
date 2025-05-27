@@ -63,5 +63,5 @@
 
 .dn-dog {     background-image: url('/img/glyphicons_002_dog_white_half.png'); }
 .dn-msg {     background-image: url('/img/glyphicons_120_message_full_white_half.png'); }
-
+.forceWhite { color: #fff!important;}
 /* END NAVBAR */
