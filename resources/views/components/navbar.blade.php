@@ -27,8 +27,8 @@
             </li>
         </ul>
         <ul class="navbar-nav d-flex">
-            <li class="nav-item db-container">
-                <span class="forceWhite db-nav-text nav-link">
+            <li class="nav-item">
+                <span class="forceWhite db-nav-text">
                     Welcome,
                     @auth
                         {{ Auth::user()->name }}!

@@ -10,7 +10,7 @@
     </head>
     <body>
         <x-navbar></x-navbar>
-
+        @include('partials.login')
         {{-- <?php dd(Auth::user()); ?> --}}
     </body>
 </html>
