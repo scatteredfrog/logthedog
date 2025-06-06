@@ -27,7 +27,7 @@
             </li>
             <li class="db-container">
                 <span class="icon-user icon-white"></span>
-                <a class="navbarText nav-link db-nav-text">
+                <a class="navbarText nav-link db-nav-text" href="{{ route('register') }}">
                     Create an Account
                 </a>
             </li>

@@ -17,6 +17,10 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/cactus', function() {
+Route::get('/contact_us', function() {
     return view('cactus');
 })->name('cactus');
+
+Route::get('/register', function() {
+    return view('auth.register');
+})->name('register');
