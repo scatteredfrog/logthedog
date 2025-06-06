@@ -16,9 +16,8 @@
                 <label for="password">Password</label>
                 <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
             </div>
-            <div class="container py-2 mx-auto col-md-6 col-lg-4">
-                <button type="submit" class="btn btn-ltd">Login</button>
-            </div>
+            <div class="container btn-group py-2 mx-auto">
+                <button type="submit" class="btn btn-ltd mx-auto">Log In</button>
         </form>
     </div>
 </div>
