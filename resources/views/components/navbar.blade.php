@@ -25,6 +25,12 @@
                     Contact Us
                 </a>
             </li>
+            <li class="db-container">
+                <span class="icon-user icon-white"></span>
+                <a class="navbarText nav-link db-nav-text">
+                    Create an Account
+                </a>
+            </li>
         </ul>
         <ul class="navbar-nav d-flex">
             <li class="nav-item">
