@@ -22,7 +22,7 @@
             </div>
             <div class="card-footer">
                 <div class="form-group btn-group container mt-1">
-                    <a href="" class="btn btn-dtl mx-auto">Sign Up</a>
+                    <a href="{{ route('register') }}" class="btn btn-dtl mx-auto">Sign Up</a>
                     <button type="submit" class="btn btn-ltd mx-auto">Log In</button>
                 </div>
             </div>
