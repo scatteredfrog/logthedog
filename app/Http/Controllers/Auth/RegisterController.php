@@ -81,6 +81,9 @@ class RegisterController extends Controller
 
         $validator = $this->validator($user_data);
 
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
         $create_user = $this->create($user_data);
     }
 }
