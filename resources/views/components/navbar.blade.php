@@ -25,12 +25,12 @@
                     Contact Us
                 </a>
             </li>
-            <li class="db-container">
+            {{-- <li class="db-container">
                 <span class="icon-user icon-white"></span>
                 <a class="navbarText nav-link db-nav-text" href="{{ route('register') }}">
                     Create an Account
                 </a>
-            </li>
+            </li> --}}
         </ul>
         <ul class="navbar-nav d-flex">
             <li class="nav-item">

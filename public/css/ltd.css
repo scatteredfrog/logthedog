@@ -66,14 +66,15 @@
     background-image: url('/images/grass_bg.jpg');
     border-radius: 8px;
     box-shadow: 3px 8px 5px 2px #D0D0D0;
-    padding-top: 6px;
-    margin-top: 85px;
+    padding-top: 15px;
+    margin-top: 75px;
 }
 
 #logo {
     margin-left: 0 auto;
     margin-right: 0 auto;
     text-align: center;
+    padding-bottom: 10px;
 }
 
 .btn-ltd {
@@ -110,6 +111,15 @@
     --bs-btn-disabled-bg: #e5f89a;
     --bs-btn-disabled-border-color: #e5f89a;
     max-width: 30%;
+}
+
+.dogText {
+    font-family: "CooperBlack";
+}
+
+@font-face {
+    font-family: 'CooperBlack';
+    src: url('fonts/cooper_becker_poster_black.ttf') format('truetype');
 }
 
 .dn-dog {     background-image: url('/img/glyphicons_002_dog_white_half.png'); }
