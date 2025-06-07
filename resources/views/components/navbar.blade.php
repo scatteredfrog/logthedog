@@ -37,7 +37,7 @@
                 <span class="forceWhite db-nav-text">
                     Welcome,
                     @auth
-                        {{ Auth::user()->name }}!
+                        {{ Auth::user()->first_name }}!
                     @else
                         friend!
                     @endauth

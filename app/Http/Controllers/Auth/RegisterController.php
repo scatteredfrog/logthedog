@@ -5,9 +5,11 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
 {
@@ -73,7 +75,7 @@ class RegisterController extends Controller
         ]);
     }
 
-    public function register(Request $request)
+    public function register(Request $request): RedirectResponse
     {
         $user_data = [
             'first_name'            => $request->first_name,
@@ -88,6 +90,11 @@ class RegisterController extends Controller
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();
         }
-        $create_user = $this->create($user_data);
+
+        $user = $this->create($user_data);
+
+        Auth::login($user);
+
+        return redirect('home');
     }
 }
