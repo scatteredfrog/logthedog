@@ -4,6 +4,10 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class LoginController extends Controller
 {
@@ -36,5 +40,31 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
         $this->middleware('auth')->only('logout');
+    }
+
+    public function login(Request $request): RedirectResponse
+    {
+        $credentials = $request->only('email', 'password');
+        $take_me = null;
+
+        $validator = Validator::make($request->all(), [
+            'email'    => 'required',
+            'password' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            $take_me = redirect()
+                ->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        if (Auth::attempt($credentials)) {
+            $take_me = redirect('home');
+        } else {
+            $take_me = redirect('home')->withError('Login attempt failed.');
+        }
+
+        return $take_me;
     }
 }
