@@ -41,7 +41,9 @@
                                 Welcome, {{ Auth::user()->first_name }}!
                             </a>
                             <ul class="dropdown-menu navbarDropdown">
-                                <li class="dropdown-item navbarDropdown">Profile</li>
+                                <li class="dropdown-item navbarDropdown">
+                                    <a href="{{route('profile')}}">Profile</a>
+                                </li>
                                 <li class="dropdown-item navbarDropdown">
                                     <a href="{{route('logout')}}">Logout</a>
                                 </li>
