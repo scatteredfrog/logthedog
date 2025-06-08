@@ -8,6 +8,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use Session;
 
 class LoginController extends Controller
 {
@@ -60,11 +61,19 @@ class LoginController extends Controller
         }
 
         if (Auth::attempt($credentials)) {
-            $take_me = redirect('home');
+            $take_me = redirect(route('home'));
         } else {
-            $take_me = redirect('home')->withError('Login attempt failed.');
+            $take_me = redirect(route('home'))->withError('Login attempt failed.');
         }
 
         return $take_me;
+    }
+
+    public function logout(): RedirectResponse
+    {
+        Session::flush();
+        Auth::logout();
+
+        return redirect(route('home'));
     }
 }

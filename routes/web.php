@@ -7,6 +7,7 @@ Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'login'])->name('login');
+Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 
 Route::get('/privacy', function() {
     return view('privacy');
