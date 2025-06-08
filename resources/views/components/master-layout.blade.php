@@ -10,7 +10,9 @@
     </head>
     <body>
         <x-navbar></x-navbar>
-        @include('partials.login')
+        <div class="row-fluid mt-5">
+            @yield('content')
+        </div>
         {{-- <?php dd(Auth::user()); ?> --}}
     </body>
 </html>

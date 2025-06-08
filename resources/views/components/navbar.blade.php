@@ -25,13 +25,19 @@
                     Contact Us
                 </a>
             </li>
+            {{-- <li class="db-container">
+                <span class="icon-user icon-white"></span>
+                <a class="navbarText nav-link db-nav-text" href="{{ route('register') }}">
+                    Create an Account
+                </a>
+            </li> --}}
         </ul>
         <ul class="navbar-nav d-flex">
             <li class="nav-item">
                 <span class="forceWhite db-nav-text">
                     Welcome,
                     @auth
-                        {{ Auth::user()->name }}!
+                        {{ Auth::user()->first_name }}!
                     @else
                         friend!
                     @endauth
