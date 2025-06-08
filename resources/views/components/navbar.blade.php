@@ -34,14 +34,23 @@
         </ul>
         <ul class="navbar-nav d-flex">
             <li class="nav-item">
-                <span class="forceWhite db-nav-text">
-                    Welcome,
+                <div class="forceWhite db-nav-text">
                     @auth
-                        {{ Auth::user()->first_name }}!
+                        <div class="dropdown navbarDropdown">
+                            <a class="dropdown-toggle" data-bs-toggle="dropdown">
+                                Welcome, {{ Auth::user()->first_name }}!
+                            </a>
+                            <ul class="dropdown-menu navbarDropdown">
+                                <li class="dropdown-item navbarDropdown">Profile</li>
+                                <li class="dropdown-item navbarDropdown">
+                                    <a href="{{route('logout')}}">Logout</a>
+                                </li>
+                            </ul>
+                        </div>
                     @else
-                        friend!
+                        Welcome, friend!
                     @endauth
-                </span>
+                </div>
             </li>
         </ul>
     </div>
