@@ -6,7 +6,7 @@
 
 <div class="row py-5 justify-content-center">
     <div id="login_container" class="bg-warning py-3 px-5 card container col-md-6 col-lg-4 mx-auto">
-        <form method="post" action="">
+        <form method="post" action="{{ route('login') }}">
             @csrf
             <div class="card-header text-center dogText"><h3>Log In</h3></div>
             <div class="card-body bg-transparent">
