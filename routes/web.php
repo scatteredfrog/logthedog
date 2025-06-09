@@ -9,6 +9,7 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'login'])->name('login');
 Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 Route::get('/profile', [App\Http\Controllers\UserController::class, 'profile'])->name('profile');
+Route::put('/update/{user}/', [App\Http\Controllers\UserController::class, 'update'])->name('user.update');
 
 Route::get('/privacy', function() {
     return view('privacy');
