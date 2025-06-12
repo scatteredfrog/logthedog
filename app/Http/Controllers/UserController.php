@@ -18,17 +18,20 @@ class UserController extends Controller
 
     public function update(User $user): View
     {
+        $request = request();
         $inputs = request()->validate([
             'first_name' => 'required|string|max:100',
             'last_name'  => 'required|string|max:100',
             'email'      => 'required|string|email|max:100',
         ]);
 
+        $inputs['language_preference'] = $request->language_preference;
+
         // Go through the fields we want to check. If the submitted value of
         // a field does not match the original value, we know we need to change
         // it, so add it to an array that holds those new values.
         foreach($inputs as $field => $value) {
-            if ($value != request()->{'current_'. $field}) {
+            if ($value != $request->{'current_'. $field}) {
                 $updated_user[$field] = $value;
             }
         }
