@@ -1,28 +1,28 @@
 <nav class="navbar navbar-expand navbar-dark bg-dark fixed-top dauber-navbar">
     <div class="container-fluid">
         <ul class="navbar-nav mr-auto">
-            <li class="db-container">
-                <span class="icon-home icon-white"></span>
+            <li class="db-container noGutter">
                 <a class="navbarText nav-link db-nav-text" href="{{ route('home') }}">
-                    Home
+                    <span class="icon-home icon-white"></span>
+                    <span class="d-none d-sm-inline">Home</span>
                 </a>
             </li>
             <li class="db-container">
                 <span class="dn-dog"></span>
                 <a class="navbarText nav-link db-nav-text" href="{{ route('about') }}">
-                    About Log the Dog
+                    About<span class="d-none d-sm-none d-md-inline"> Log the Dog</span>
                 </a>
             </li>
             <li class="db-container">
                 <span class="icon-lock icon-white"></span>
                 <a class="navbarText nav-link db-nav-text" href="{{ route('privacy') }}">
-                    Privacy Policy
+                    Privacy<span class="d-none d-sm-inline"> Policy</a>
                 </a>
             </li>
             <li class="db-container">
                 <span class="dn-msg"></span>
                 <a class="navbarText nav-link db-nav-text" href="{{ route('cactus') }}">
-                    Contact Us
+                    Contact<span class="d-none d-sm-inline"> Us</a>
                 </a>
             </li>
             {{-- <li class="db-container">
@@ -38,7 +38,8 @@
                     @auth
                         <div class="dropdown navbarDropdown">
                             <a class="dropdown-toggle" data-bs-toggle="dropdown">
-                                Welcome, {{ Auth::user()->first_name }}!
+                                <span class="d-none d-sm-inline">Welcome</span>
+                                <span class="d-inline d-sm-none">Hi</span>, {{ Auth::user()->first_name }}!
                             </a>
                             <ul class="dropdown-menu navbarDropdown">
                                 <li class="dropdown-item navbarDropdown">

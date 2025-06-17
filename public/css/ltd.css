@@ -129,4 +129,5 @@ ul.navbarDropdown a:hover {    color: #fffb00!important;}
 .dn-msg {     background-image: url('/img/glyphicons_120_message_full_white_half.png'); }
 .forceWhite { color: #fff!important;}
 .dogText {    font-family: "CooperBlack";}
+.noGutter { margin-left: -22px!important;}
 /* END NAVBAR */
