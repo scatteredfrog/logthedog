@@ -1,7 +1,7 @@
 <x-master-layout>
     @section('content')
         @if(Auth::check())
-            Dashboard coming soon!
+            @include('dashboard')
         @else
             @include('auth.login')
         @endif
