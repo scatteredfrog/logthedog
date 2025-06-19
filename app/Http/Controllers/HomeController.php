@@ -25,6 +25,15 @@ class HomeController extends Controller
     public function index(): View
     {
         if (Auth::check()) {
+
+            // Get the dogs this user has access to.
+            $dogs = Auth::user()->dogs;
+            // If the user has no dogs, redirect to the dog registry.
+            if ($dogs->isEmpty()) {
+                session()->flash('message', 'You have no dogs registered. Please register a dog.');
+                return view('dog.registry');
+            }
+
             $tiles = array(
                 array(
                     'activity' => 'meal',
