@@ -21,70 +21,27 @@
 
 <!-- Narrow view -->
 <div class="d-block d-sm-none">
-    <div class="row py-2">
-        <div class="col-1"></div>
-        <div class="col-5">
-            <x-tile icon="feed"
-                activity="meal"
-                class="">
-            </x-tile>
-        </div>
-        <div class="col-5">
-            <x-tile icon="dogwalk"
-                activity="walk"
-                class="walkBox">
-            </x-tile>
-        </div>
-        <div class="col-1"></div>
-    </div>
-    <div class="row py-2">
-        <div class="col-1"></div>
-        <div class="col-5">
-            <x-tile icon="potty"
-                activity="potty"
-                class="pottyBox">
-            </x-tile>
-        </div>
-        <div class="col-5">
-            <x-tile icon="treat"
-                activity="treat"
-                class="treatBox">
-            </x-tile>
-        </div>
-        <div class="col-1"></div>
-    </div>
-    <div class="row py-2">
-        <div class="col-1"></div>
-        <div class="col-5">
-            <x-tile icon="meds"
-                activity="med"
-                class="medBox">
-            </x-tile>
-        </div>
-        <div class="col-5">
-            <x-tile icon="bath"
-                activity="bath"
-                class="bathBox">
-            </x-tile>
-        </div>
-        <div class="col-1"></div>
-    </div>
-    <div class="row py-2">
-        <div class="col-1"></div>
-        <div class="col-5">
-            <x-tile icon="registry"
-                activity="dog_registry"
-                class="registerBox"
-                nolog=true>
-            </x-tile>
-        </div>
-        <div class="col-5">
-            <x-tile icon="kwik"
-                activity="fast_glance"
-                class="quickBox"
-                nolog=true>
-            </x-tile>
-        </div>
-        <div class="col-1"></div>
-    </div>
+    @foreach($tiles as $tile)
+        @if($loop->iteration %2 == 1)
+            <div class="row py-2">
+                <div class="col-1"></div>
+                <div class="col-5">
+                    <x-tile icon="{{ $tile['icon'] }}"
+                        activity="{{ $tile['activity'] }}"
+                        class="{{ $tile['class'] ?? '' }}"
+                        nolog="{{ $tile['nolog'] ?? false }}">
+                    </x-tile>
+                </div>
+        @else
+                <div class="col-5">
+                    <x-tile icon="{{ $tile['icon'] }}"
+                        activity="{{ $tile['activity'] }}"
+                        class="{{ $tile['class'] ?? '' }}"
+                        nolog="{{ $tile['nolog'] ?? false }}">
+                    </x-tile>
+                </div>
+                <div class="col-1"></div>
+            </div>
+        @endif
+    @endforeach
 </div>
