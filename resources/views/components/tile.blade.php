@@ -7,7 +7,7 @@
         @endif
         ">
         <img src={{ asset("images/menu_$icon.png") }} alt="Log a {{ $activity }}" class="img-fluid" />
-        <div class="menuText"><span class="d-none d-sm-inline">
+        <div class="menuText"><span class="d-none d-md-inline">
             @if(!isset($nolog))
                 Log a </span>{{ Str::ucfirst($activity) }}</div>
             @else
