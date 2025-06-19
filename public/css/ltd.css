@@ -123,6 +123,22 @@
     color: #fff!important;
 }
 
+.menuBox {
+    border-color: #000;
+    border-style: solid;
+    border-width: 3px;
+    background-color: yellow;
+}
+
+.menuText {
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #000;
+    padding: 3px;
+}
+
 .navbarDropdown a {    text-decoration: none;}
 ul.navbarDropdown a:hover {    color: #fffb00!important;}
 .dn-dog {     background-image: url('/img/glyphicons_002_dog_white_half.png'); }
@@ -130,4 +146,13 @@ ul.navbarDropdown a:hover {    color: #fffb00!important;}
 .forceWhite { color: #fff!important;}
 .dogText {    font-family: "CooperBlack";}
 .noGutter { margin-left: -22px!important;}
-/* END NAVBAR */
+.menuAnchor { color: #000; }
+.no-dec { text-decoration: none;}
+.treatBox { background-color: #fea7ff; }
+.medBox { background-color: #fff;}
+.walkBox { background-color: #97ff00; }
+.blueBox { background-color: #acd; }
+.pottyBox { background-color: #6be6f6; }
+.bathBox { background-color: #eb1818; }
+.registerBox { background-color: #fe9512;}
+.quickBox { background-color: #0ee3ad; }
