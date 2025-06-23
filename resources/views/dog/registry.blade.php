@@ -36,7 +36,7 @@
                                         </select>
                                     </td>
                                     <td>
-                                        <span class="mx-2 my-2">Neutered / spayed?</span>
+                                        <span id="spay" class="mx-2 my-2">Neutered / spayed?</span>
                                         <input type="checkbox" id="is_neutered" name="is_neutered" class=" darkBorder px-2 form-check-input">
                                     </td>
                                 </tr>
@@ -52,8 +52,7 @@
                                 </tr>
                                 <tr>
                                     <td><label for="marks">Distinguishing marks or features</label></td>
-                                    <td><input type="text" id="marks" name="marks" class="mb-3 form-control"></td>
-                                    <td></td>
+                                    <td colspan=2><input type="text" id="marks" name="marks" class="mb-3 form-control"></td>
                                 </tr>
                                 <tr>
                                     <td><label for="weight">Weight</label></td>
@@ -87,8 +86,7 @@
                                 </tr>
                                 <tr>
                                     <td><label for="misc">Miscellaneous</label></td>
-                                    <td><input type="text" id="misc" name="misc" placeholder="(limit 255 characters)" class="mb-3 form-control"></td>
-                                    <td></td>
+                                    <td colspan=2><input type="text" id="misc" name="misc" placeholder="(limit 255 characters)" class="mb-3 form-control"></td>
                                 </tr>
 
                             </table>
@@ -101,5 +99,18 @@
                 </form>
             </div>
         </div>
+        <script>
+            // Change spayed/neutered verbiage based on selected gender.
+            let gender = document.getElementById('gender');
+            let spay = document.getElementById('spay');
+
+            gender.addEventListener('change', function() {
+                if (gender.value == 0) {
+                    spay.textContent = 'Spayed?';
+                } else {
+                    spay.textContent = 'Neutered?';
+                }
+            });
+        </script>
     @endsection
 </x-master-layout>
