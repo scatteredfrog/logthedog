@@ -2,7 +2,7 @@
     @section('content')
         <div class="row mt-5">
             <div class="container card col-md-6 mx-auto mt-5">
-                <form method="post" action="{{ route('dog.store') }}">
+                <form method="post" action="{{ route('dog.store') }} enctype="multipart/form-data">
                     @csrf
                     <div class="card-header text-center dogText">
                         <h3 class="mx-auto">Register a Dog</h3>
@@ -19,6 +19,18 @@
                         @endif
                         <div class="row">
                             <table class="table table-striped table-borderless">
+                                <tr>
+                                    <td><label for="photo">Dog's photo</label></td>
+                                    <td colspan=2>
+                                        <input type="file"
+                                            id="photo"
+                                            name="photo"
+                                            class="mb-3 form-control"
+                                            accept="image/*"
+                                        >
+                                        <span class="form-text">Upload a photo of your dog.</span>
+                                    </td>
+                                </tr>
                                 <tr>
                                     <td><label for="name">Dog's name</label></td>
                                     <td>
