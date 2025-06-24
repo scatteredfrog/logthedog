@@ -2,7 +2,7 @@
     @section('content')
         <div class="row mt-5">
             <div class="container card col-md-6 mx-auto mt-5">
-                <form method="post" action="{{ route('dog.store') }} enctype="multipart/form-data">
+                <form method="post" action="{{ route('dog.store') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="card-header text-center dogText">
                         <h3 class="mx-auto">Register a Dog</h3>
@@ -28,7 +28,6 @@
                                             class="mb-3 form-control"
                                             accept="image/*"
                                         >
-                                        <span class="form-text">Upload a photo of your dog.</span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -72,7 +71,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><label for="length">Weight</label></td>
+                                    <td><label for="length">Length</label></td>
                                     <td><input type="number" id="length" name="length" placeholder="(in inches)" class="mb-3 form-control"></td>
                                     <td></td>
                                 </tr>
@@ -81,6 +80,10 @@
                                     <td><input type="number" id="height" name="height" placeholder="(in inches)" class="mb-3 form-control"></td>
                                     <td></td>
                                 </tr>
+                                <tr>
+                                    <td><label for="age">Age</label></td>
+                                    <td><input type="number" id="age" name="age" placeholder="(in years)" class="mb-3 form-control"></td>
+                                    <td></td>
                                 <tr>
                                     <td><label for="birth_date">Birth date</label></td>
                                     <td><input type="date" id="birth_date" name="birth_date" class="mb-3 form-control"></td>
