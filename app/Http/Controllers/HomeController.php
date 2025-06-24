@@ -31,7 +31,7 @@ class HomeController extends Controller
 
             // If the user has no dogs, redirect to the dog registry.
             if ($dogs->isEmpty()) {
-                session()->flash('message', 'You have no dogs registered. Please register a dog.');
+                session()->flash('nodog_message', 'You have no dogs registered. Please register a dog.');
                 return view('dog.registry');
             }
 

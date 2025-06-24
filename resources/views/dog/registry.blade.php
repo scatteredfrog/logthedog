@@ -1,5 +1,13 @@
 <x-master-layout>
     @section('content')
+        <!-- If the nodog_message flashes, display it here.
+
+        If the user has no dogs, they will see this message. -->
+        @if (session('nodog_message'))
+            <div class="row alert alert-danger">
+                <h3>{{ session('nodog_message') }}
+            </div>
+        @endif
         <div class="row mt-5">
             <div class="container card col-md-6 mx-auto mt-5">
                 <form method="post" action="{{ route('dog.store') }}" enctype="multipart/form-data">
