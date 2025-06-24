@@ -18,6 +18,7 @@ Route::get('/logit/med', [App\Http\Controllers\LogitController::class, 'log_med'
 Route::get('/logit/bath', [App\Http\Controllers\LogitController::class, 'log_bath'])->name('logit.bath');
 Route::get('/dog/registry', [App\Http\Controllers\DogController::class, 'registry'])->name('dog.registry');
 Route::get('/glance', [App\Http\Controllers\HomeController::class, 'glance'])->name('fast.glance');
+Route::post('/dog/store', [App\Http\Controllers\DogController::class, 'store'])->name('dog.store');
 
 Route::get('/privacy', function() {
     return view('privacy');

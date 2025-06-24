@@ -156,3 +156,5 @@ ul.navbarDropdown a:hover {    color: #fffb00!important;}
 .bathBox { background-color: #eb1818; }
 .registerBox { background-color: #fe9512;}
 .quickBox { background-color: #0ee3ad; }
+.noBorder { border: none!important; }
+.darkBorder { border: 1px solid #000!important;}
