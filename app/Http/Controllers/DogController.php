@@ -41,9 +41,6 @@ class DogController extends Controller
         // Create the dog record
         $dog = auth()->user()->dogs()->create($inputs);
 
-        // Attach the user to the dog
-        auth()->user()->dogs()->attach($dog->id);
-
         // Flash a success message
         session()->flash('message', 'Dog registered successfully!');
 
