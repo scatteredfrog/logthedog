@@ -55,7 +55,7 @@
                                     </td>
                                     <td>
                                         <span id="spay" class="mx-2 my-2">Neutered / spayed?</span>
-                                        <input type="checkbox" id="is_neutered" name="is_neutered" class=" darkBorder px-2 form-check-input">
+                                        <input type="checkbox" id="is_neutered" name="is_neutered" class="px-2 form-check-input">
                                     </td>
                                 </tr>
                                 <tr>

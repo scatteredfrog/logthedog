@@ -27,15 +27,16 @@ class Meal extends Model
     public static function getLastMeal($dog_id): string
     {
         $last_meal = DB::table('meals')->where('dog_id', $dog_id)
-                    ->orderBy('meal_time', 'desc')
-                    ->first();
+            ->orderBy('meal_time', 'desc')
+            ->first();
+
         $latest_meal = 'No meals logged yet.';
 
         if ($last_meal) {
             if (Carbon::parse($last_meal->meal_time)->isToday()) {
                 $latest_meal = 'today';
             } else {
-                $latest_meal = date_format($last_meal->meal_time, 'F j, Y');
+                $latest_meal = date_format(Carbon::parse($last_meal->meal_time), 'F j, Y');
             }
             $latest_meal .= ' at ' . date_format(Carbon::parse($last_meal->meal_time), 'g:ia');
         }

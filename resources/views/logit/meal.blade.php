@@ -16,7 +16,9 @@
                         <table class="table table-striped table-borderless">
                             <thead>
                                 <tr>
-                                    <th></th>
+                                    @if($dogs->count() > 1)
+                                        <th></th>
+                                    @endif
                                     <th>Dog</th>
                                     <th>Date</th>
                                     <th>Time</th>
@@ -26,12 +28,21 @@
                             <tbody>
                                 @foreach($dogs as $dog)
                                     <tr>
-                                        <td class="py-3">
-                                            <input type="checkbox" name="dog_id[]" value="{{ $dog->id }}" class="form-check-input">
-                                        </td>
+                                        @if($dogs->count() > 1)
+                                            <td class="py-3">
+                                                <input type="checkbox" name="dog_id[]" value="{{ $dog->id }}" class="form-check-input">
+                                            </td>
+                                        @else
+                                            <input type="hidden" name="dog_id[]" value="{{ $dog->id }}">
+                                        @endif
                                         <td class="py-3">{{ $dog->name }}</td>
                                         <td>
-                                            <input type="date" name="meal_date[{{ $dog->id }}]" class="form-control" value="{{ date('Y-m-d') }}">
+                                            <div class="row">
+                                                <input type="date" name="meal_date[{{ $dog->id }}]" class="form-control" value="{{ date('Y-m-d') }}">
+                                            </div>
+                                            <div class="row italicText">
+                                                last fed {{ \App\Models\Meal::getLastMeal($dog->id) }}
+                                            </div>
                                             @error('meal_date.' . $dog->id)
                                                 <div class="alert alert-danger">Please enter a valid date.</div>
                                             @enderror
@@ -43,7 +54,15 @@
                                             @enderror
                                         </td>
                                         <td>
-                                            <input type="text" name="notes[{{ $dog->id }}]" class="form-control">
+                                            <input type="text"
+                                                name="notes[{{ $dog->id }}]"
+                                                class="form-control"
+                                                maxlength="255"
+                                                placeholder="(Optional)"
+                                            >
+                                            @error('notes.' . $dog->id)
+                                                <div class="alert alert-danger">Notes cannot exceed 255 characters.</div>
+                                            @enderror
                                         </td>
                                     </tr>
                                 @endforeach
