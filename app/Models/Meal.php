@@ -30,7 +30,7 @@ class Meal extends Model
             ->orderBy('meal_time', 'desc')
             ->first();
 
-        $latest_meal = 'No meals logged yet.';
+        $latest_meal = '- no meals logged yet.';
 
         if ($last_meal) {
             if (Carbon::parse($last_meal->meal_time)->isToday()) {
