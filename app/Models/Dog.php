@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Dog extends Model
 {
@@ -27,6 +28,11 @@ class Dog extends Model
         'misc',
         'photo'
     ];
+
+    public function meal(): HasMany
+    {
+        return $this->HasMany(Meal::class);
+    }
     public function users(): BelongsToMany
     {
         return $this->belongsToMany(User::class);

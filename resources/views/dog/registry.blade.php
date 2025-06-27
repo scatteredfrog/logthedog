@@ -1,7 +1,6 @@
 <x-master-layout>
     @section('content')
         <!-- If the nodog_message flashes, display it here.
-
         If the user has no dogs, they will see this message. -->
         @if (session('nodog_message'))
             <div class="row alert alert-danger">

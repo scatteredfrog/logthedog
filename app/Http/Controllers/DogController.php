@@ -19,19 +19,19 @@ class DogController extends Controller
         // Validate the request data
         $inputs = request()->validate([
             'name'             => 'required|string|max:100',
-            'breed'            => 'string|max:255',
-            'color'            => 'string|max:255',
-            'marks'            => 'string|max:255',
-            'weight'           => 'numeric|min:0',
-            'length'           => 'numeric|min:0',
-            'height'           => 'numeric|min:0',
-            'age'              => 'integer|min:0|max:30',
-            'birth_date'       => 'date',
-            'gotcha_date'      => 'date',
-            'microchip_number' => 'string|max:50',
-            'chip_company'     => 'string|max:255',
-            'misc'             => 'string|max:2000',
-            'photo'            => 'mimes:jpeg,png,jpg,gif',
+            'breed'            => 'nullable|string|max:255',
+            'color'            => 'nullable|string|max:255',
+            'marks'            => 'nullable|string|max:255',
+            'weight'           => 'nullable|numeric|min:0',
+            'length'           => 'nullable|numeric|min:0',
+            'height'           => 'nullable|numeric|min:0',
+            'age'              => 'nullable|integer|min:0|max:30',
+            'birth_date'       => 'nullable|date',
+            'gotcha_date'      => 'nullable|date',
+            'microchip_number' => 'nullable|string|max:50',
+            'chip_company'     => 'nullable|string|max:255',
+            'misc'             => 'nullable|string|max:2000',
+            'photo'            => 'nullable|mimes:jpeg,png,jpg,gif',
         ]);
 
         if (request('photo')) {

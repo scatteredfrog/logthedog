@@ -1,5 +1,10 @@
 <!-- Wide view -->
 <div class="d-none d-sm-block">
+    @if (session('success'))
+        <div class="row alert alert-success">
+            <h3>{{ session('success') }}</h3>
+        </div>
+    @endif
     @foreach($tiles as $tile)
         @if($loop->first || $loop->iteration % 4 == 1)
             <div class="row py-2">
@@ -21,6 +26,11 @@
 
 <!-- Narrow view -->
 <div class="d-block d-sm-none">
+    @if (session('success'))
+        <div class="row alert alert-success">
+            <h3>{{ session('success') }}</h3>
+        </div>
+    @endif
     @foreach($tiles as $tile)
         @if($loop->iteration %2 == 1)
             <div class="row py-2">
