@@ -45,7 +45,48 @@
                                 <input type="hidden" id="current_email" name="current_email" value="{{ $user->email }}">
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row mb-3">
+                            <div class="col-3">
+                                Language Preference
+                            </div>
+                            <div class="col-4">
+                                <input type="hidden"
+                                    name="current_language_preference"
+                                    id="current_language_preference"
+                                    value="{{ $user->language_preference }}">
+                                <select id="language_preference"
+                                    name="language_preference"
+                                    class="form-control">
+                                    <option value="0"
+                                        @selected($user->language_preference == 0) >
+                                        Scientific (default)
+                                    </option>
+                                    <option value="1"
+                                        @selected($user->language_preference == 1) >
+                                        Numeric
+                                    </option>
+                                    <option value="2"
+                                        @selected($user->language_preference == 2) >
+                                        Slang
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="col-5 pt-2">
+                                Your dog will <span id="verbiage">
+                                    @switch($user->language_preference)
+                                        @case(0)
+                                            urinate and defecate.
+                                            @break
+                                        @case(1)
+                                            go #1 and #2.
+                                            @break
+                                        @case(2)
+                                            pee and poop.
+                                            @break
+                                    @endswitch
+                                </span>
+                            </div>
+                        </div>                        <div class="row">
                             <div class="col-3">
                                 Password:
                             </div>
@@ -69,5 +110,25 @@
                 </form>
             </div>
         </div>
+        <script>
+            // Get the dropdown element.
+            const language_preference = document.getElementById('language_preference');
+            // Get the dynamic text span element.
+            const verbiage = document.getElementById('verbiage');
+            // Trigger the appropriate verbiage for the chosen option.
+            language_preference.addEventListener('change', function() {
+                switch(language_preference.value) {
+                    case '0':
+                        verbiage.textContent = 'urinate and defecate.';
+                        break;
+                    case '1':
+                        verbiage.textContent = 'go #1 and #2.';
+                        break;
+                    case '2':
+                        verbiage.textContent = 'pee and poop.';
+                        break;
+                }
+            });
+        </script>
     @endsection
 </x-master-layout>
