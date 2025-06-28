@@ -33,6 +33,12 @@ class Dog extends Model
     {
         return $this->HasMany(Meal::class);
     }
+
+    public function bath(): HasMany
+    {
+        return $this->HasMany(Bath::class);
+    }
+
     public function users(): BelongsToMany
     {
         return $this->belongsToMany(User::class);
