@@ -12,6 +12,7 @@ Route::get('/profile', [App\Http\Controllers\UserController::class, 'profile'])-
 Route::put('/update/{user}/', [App\Http\Controllers\UserController::class, 'update'])->name('user.update');
 Route::get('/logit/meal', [App\Http\Controllers\LogitController::class, 'log_meal'])->name('logit.meal');
 Route::post('/logit/meal/store', [App\Http\Controllers\LogitController::class, 'meal_store'])->name('logit.meal.store');
+Route::post('/logit/bath/store', [App\Http\Controllers\LogitController::class, 'bath_store'])->name('logit.bath.store');
 Route::get('/logit/walk', [App\Http\Controllers\LogitController::class, 'log_walk'])->name('logit.walk');
 Route::get('/logit/potty', [App\Http\Controllers\LogitController::class, 'log_potty'])->name('logit.potty');
 Route::get('/logit/treat', [App\Http\Controllers\LogitController::class, 'log_treat'])->name('logit.treat');

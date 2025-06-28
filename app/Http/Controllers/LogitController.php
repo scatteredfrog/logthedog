@@ -15,7 +15,7 @@ class LogitController extends Controller
         return view('logit.meal', compact('dogs'));
     }
 
-    public function meal_store(Request $request)
+    public function meal_store()
     {
         $inputs = request()->validate([
             'dog_id.*'    => 'required|exists:dogs,id',
@@ -69,6 +69,36 @@ class LogitController extends Controller
     // LOG A BATH
     public function log_bath(): View
     {
-        return view('logit.bath');
+        // Get the user's dogs.
+        $dogs = auth()->user()->dogs;
+        return view('logit.bath', compact('dogs'));
     }
+
+    public function bath_store()
+    {
+        $inputs = request()->validate([
+            'dog_id.*'    => 'required|exists:dogs,id',
+            'bath_time.*' => 'required',
+            'bath_date.*' => 'required',
+            'notes.*'     => 'nullable|string|max:255',
+        ]);
+
+        if (isset($inputs['dog_id'])) {
+            foreach ($inputs['dog_id'] as $id) {
+                $bath = $inputs['bath_date'][$id] . ' ' . $inputs['bath_time'][$id];
+                $notes = $inputs['notes'][$id];
+                auth()->user()->dogs()->find($id)->bath()->create([
+                    'bath_time' => $bath,
+                    'notes'     => $notes,
+                ]);
+            }
+            return redirect()->route('home')
+                ->with('success', 'Bath logged successfully!');
+        } else {
+            return redirect()->back()
+                ->with('error', 'Please select at least one dog to log a bath.')
+                ->withInput();
+        }
+    }
+
 }
