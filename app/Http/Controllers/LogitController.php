@@ -51,7 +51,42 @@ class LogitController extends Controller
     // LOG A POTTY
     public function log_potty(): View
     {
-        return view('logit.potty');
+        // Get the user's dogs.
+        $dogs = auth()->user()->dogs;
+        return view('logit.potty', compact('dogs'));
+    }
+
+    public function potty_store()
+    {
+        $inputs = request()->validate([
+            'dog_id.*'      => 'required|exists:dogs,id',
+            'potty_type.*'  => 'required|in:1,2',
+            'potty_time.*'  => 'required',
+            'potty_date.*'  => 'required',
+            'notes.*'       => 'nullable|string|max:255',
+        ]);
+
+        if (isset($inputs['dog_id'])) {
+            foreach ($inputs['dog_id'] as $id) {
+                if (!isset($inputs['potty_type'])) {
+                    return redirect()->back()->
+                        with('error', 'Please select a potty type.');
+                }
+                $potty_time = $inputs['potty_date'][$id] . ' ' . $inputs['potty_time'][$id];
+                $notes = $inputs['notes'][$id];
+                auth()->user()->dogs()->find($id)->potty()->create([
+                    'potty_type' => $inputs['potty_type'][$id],
+                    'potty_time' => $potty_time,
+                    'notes'      => $notes,
+                ]);
+            }
+            return redirect()->route('home')
+                ->with('success', 'Potty logged successfully!');
+        } else {
+            return redirect()->back()
+                ->with('error', 'Please select at least one dog to log a potty.')
+                ->withInput();
+        }
     }
 
     // LOG A TREAT

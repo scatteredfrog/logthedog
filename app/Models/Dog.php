@@ -44,9 +44,13 @@ class Dog extends Model
         return $this->belongsToMany(User::class);
     }
 
+    public function potty(): HasMany
+    {
+        return $this->hasMany(Potty::class);
+    }
+
     public function create(array $attributes = []): self
     {
-        dd($attributes);
         $dog = new self($attributes);
         $dog->save();
     }
