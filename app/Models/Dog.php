@@ -51,7 +51,6 @@ class Dog extends Model
 
     public function create(array $attributes = []): self
     {
-        dd($attributes);
         $dog = new self($attributes);
         $dog->save();
     }
